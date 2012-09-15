@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block container-content %}
+<div class="row">
+                <div class="span3">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="active"><a href="#">Popular Clubs</a></li>
+                            <li><a href="#">All</a></li>
+                            <li class="nav-header">Get Clubs by:</li>
+                        </ul>
+
+                            <div id="sidebar-menu" class="accordion">
+                                <div class="accordian-group">
+                                    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebar-menu" href="#region">Region<i class="icon-chevron-down pull-right"></i></a>
+                                    </div>
+                                    <div id="region" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <ul class="nav nav-list">
+                                                <li><a href="#">North</a></li>
+                                                <li><a href="#">East</a></li>
+                                                <li><a href="#">West</a></li>
+                                                <li><a href="#">Central</a></li>
+                                                <li><a href="#">South</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordian-group">
+                                    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebar-menu" href="#type">Type<i class="icon-chevron-down pull-right"></i></a>
+                                    </div>
+                                    <div id="type" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <ul class="nav nav-list">
+                                                <li><a href="#">Engg and Tech</a></li>
+                                                <li><a href="#">Applied Sciences</a></li>
+                                                <li><a href="#">Social/NGO</a></li>
+                                                <li><a href="#">Music/Bands</a></li>
+                                                <li><a href="#">Management/Finance</a></li>
+                                                <li><a href="#">Others</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordian-group">
+                                    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebar-menu" href="#campus">Campus<i class="icon-chevron-down pull-right"></i></a>
+                                    </div>
+                                    <div id="campus" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <ul class="nav nav-list">
+                                                <li><a href="#">IIT Delhi</a></li>
+                                                <li><a href="#">IIT Bombay</a></li>
+                                                <li><a href="#">IIT Kanpur</a></li>
+                                                <li><a href="#">Amity Univeristy, Haryana</a></li>
+                                                <li><a href="#">Delhi University</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <hr />
+                    <div class="row well" id="social">
+                        <div class="span3"><a href="http://facebook.com/collegedivein"><img src="{{ STATIC_URL }}img/facebook.png" alt="CDI facebook page" /> </a>
+                        <a href="http://blog.collegedive.in"><img src="{{ STATIC_URL }}img/blogger.png" alt="CDI blog" /> </a>
+                        <a href="http://twitter.com/codestersgroup"><img src="{{ STATIC_URL }}img/twitter.png" alt="CDI twitter" /> </a>
+                        <a href="#"><img src="{{ STATIC_URL }}img/googleplus.png" alt="CDI google plus" /> </a>
+                        <a href="mailto:cdi@codesters.org"> <img src="{{ STATIC_URL }}img/mail.png" alt="CDI mail" /></a></div>
+                    </div>
+                    <hr />
+                    <div class="row well">
+                        <div class="span3"><a href="#" class="btn btn-link btn-large">Team</a>
+                        <a href="#" class="btn btn-link btn-large">About</a>
+                        <a href="#" class="btn btn-link btn-large">Contact</a></div>
+                    </div>
+                </div>
+                <div class="span9">
+                {% block content %}{% endblock %}
+                </div>
+            </div>
+{% endblock %}
