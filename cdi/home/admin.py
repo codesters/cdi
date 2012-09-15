@@ -1,5 +1,5 @@
 from django.contrib import admin
-from cdi.apps.home.models import Address, College, Event, Club, Note
+from cdi.home.models import Address, College, Event, Club, Note
 
 class AddressAdmin(admin.ModelAdmin):
     list_display=('street', 'city', 'state')

@@ -1,0 +1,51 @@
+{% extends "base_test.html" %}
+
+{% block extras %}
+<link rel="stylesheet" href="{{ STATIC_URL }}style/content.css">
+{% endblock %}
+
+{% block title %}Clubs | CollegeDiveIn{% endblock %}
+
+{% block sidebar %}
+    <ul>
+        <li><a href="#">College</a></li>
+        <li><a href="#">Local</a></li>
+        <li><a href="#">All</a></li>
+    </ul>
+{% endblock %}
+{% block content %} 
+    {% for club in club_list %}
+    <br />
+    <div class="list-elements">
+        <h3>{{ club.name }}</h3>
+        <ul>
+            <li>College: {{ club.college }}</li>
+            <li>Type: {{ club.club_type }}</li>
+            <li>Website: {{club.website }}</li>
+            <li>About: {{club.about }}</li>
+            <li>Rating: {{club.popularity }}</li>
+            <li>Membership: {{ club.membership }}</li>
+        </ul>
+    </div>
+    {% endfor %}
+    <br />
+    <div class="pagination">
+        <span class="step-links">
+        <span class="previous">
+        {% if club_list.has_previous %}
+        <a href="?page={{ club_list.previous_page_number }}">previous</a>
+        {% endif %}
+        </span>
+        <span class="current">
+        Page {{ club_list.number }} of {{ club_list.paginator.num_pages }}
+        </span>
+        <span class="next">
+        {% if club_list.has_next %}
+        <a href="?page={{ club_list.next_page_number }}">next</a>
+        {% endif %}
+        </span>
+        </span>
+    </div>
+    <br />
+
+{% endblock %}
