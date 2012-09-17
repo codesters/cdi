@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 
+{% block title %}CollegeDiveIn - spice up your college life{% endblock %}
 {% block page-heading %}Welcome to CollegeDiveIn <small>spice up your life</small>{% endblock %}
 {% block container-content %}
 <div class="row clearfix" style="margin-top:1px">
@@ -33,26 +34,23 @@
 </div>
 {% endblock %}
 {% block footer %}
-<div class="navbar navbar-inverse fixed-bottom">
-    <div class="navbar-inner">
-        <div class="container-fluid">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse-footer">
+
+{% load tags %}
+<div class="container fixed-bottom">
+    <div class="navbar navbar-inverse fixed-bottom">
+        <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse-footer">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-            </a>
-            <div class="nav-collapse-footer collapse">
+            </button>
+          <div class="nav-collapse-footer collapse">
                 <ul class="nav">
-                    <li class="divider-vertical"></li>
-                    <li><a href="#">Learn More</a></li>
-                    <li class="divider-vertical"></li>
-                    <li><a href="#">Team</a></li>
-                    <li class="divider-vertical"></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li class="divider-vertical"></li>
+                    <li class="{% active request "^/about/" %}"><a href="{{ HOST }}/about/">Learn More</a></li>
+                    <li class="{% active request "^/team/" %}"><a href="{{ HOST }}/team/">Team</a></li>
+                    <li class="{% active request "^/contact/" %}"><a href="{{ HOST }}/contact/">Contact Us</a></li>
                 </ul>
-            </div><!--/.nav-collapse -->
-        </div>
+            </div><!--/.nav-collapse-footer -->
     </div>
 </div>
 

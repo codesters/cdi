@@ -48,3 +48,27 @@ header {
     margin-bottom:0 !important;
 }
 
+#detail-ul li {
+    margin-bottom: 10px;
+}
+
+#about *.hero-unit {
+    font-size:18px;
+    min-height: 250px !important;
+}
+
+#about *.span4, #about *.span6 {
+    padding: 20px 0;
+}
+
+#about li {
+    margin-bottom:10px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    #about img {
+        display:none !important;
+    }
+}

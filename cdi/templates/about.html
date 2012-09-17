@@ -1,0 +1,85 @@
+{% extends "home.html" %}
+
+{% block title %}About - CollegeDiveIn{% endblock %}
+{% block page-heading %}About Us{% endblock %}
+
+{% block container-content %}
+
+<div class="row clearfix">
+    <div id="about" class="span12" style="margin-top: 20px">
+        <div class="hero-unit">
+            <h1>know about local events</h1>
+            <p>Get information about all the college events in the country. Attend more events of favourite genre and get social.</p>
+            <div class="row">
+                <div class="span4">
+                <p>Get event listing by:</p>
+                <ul>
+                    <li>popularity - most popular events</li>
+                    <li>genre - fest, party and many more</li>
+                    <li>region - north, south, east, west, central</li>
+                    <li>campuses</li>
+                </ul>
+                </div>
+                <div class="span6 pull-right">
+                    <img src="{{ STATIC_URL }}img/slide1.jpg" height=auto width=auto alt="CollegeDiveIn about" />
+                </div>
+            </div>
+        </div>
+        <div class="hero-unit">
+            <h1>connect with popular clubs</h1>
+            <p>We have database of all the popular college clubs. Connect with your favourite one and have fun.</p>
+            <div class="row">
+                <div class="span4">
+                <p>search for clubs by:</p>
+                <ul>
+                    <li>popularity - most popular clubs</li>
+                    <li>type - music, tech, social and many more</li>
+                    <li>region - north, south, east, west, central</li>
+                    <li>campuses</li>
+                </ul>
+                </div>
+                <div class="span6 pull-right">
+                    <img src="{{ STATIC_URL }}img/slide2.jpg" height=auto width=auto alt="CollegeDiveIn about" />
+                </div>
+            </div>
+        </div>
+        <div class="hero-unit">
+            <h1>know which college is best</h1>
+            <p>Based on students, and other people response calculated algorithmically, get ratings of the best colleges in the country.</p>
+            <div class="row">
+                <div class="span4">
+                <p>learn more about other colleges:</p>
+                <ul>
+                    <li>ratings - most popular colleges</li>
+                    <li>type - engg, management, medical and others</li>
+                    <li>region - north, south, east, west, central</li>
+                </ul>
+                </div>
+                <div class="span6 pull-right">
+                    <img src="{{ STATIC_URL }}img/slide3.jpg" height=auto width=auto alt="CollegeDiveIn about" />
+                </div>
+            </div>
+        </div>
+        <div class="hero-unit">
+            <h1>study material</h1>
+            <p>Though at very small scale, you can also get some notes for B.Tech courses.</p>
+            <div class="row">
+                <div class="span4">
+                <p>Search notes data by:</p>
+                <ul>
+                    <li>courses - cse, ece, civil, mae</li>
+                    <li>popular notes</li>
+                    <li>campuses</li>
+                </ul>
+                </div>
+                <div class="span6 pull-right">
+                    <img src="{{ STATIC_URL }}img/slide1.jpg" height=auto width=auto alt="CollegeDiveIn about" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

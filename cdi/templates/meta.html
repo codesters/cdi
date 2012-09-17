@@ -1,0 +1,23 @@
+hi, there {{ PATH }}<br />
+<br />
+{{ request.path }}
+<br />
+<ul>
+{% for college in COLLEGES %}
+<li>{{ college.id }} : {{ college.name }}</li>
+{% endfor %}
+</ul>
+<br />
+<br />
+<br />
+{% ifequal PATH '/meta/' %}
+You are good person
+{% else %}
+You are bad person
+{% endifequal %}
+<br />
+{% for k, v in request.Meta.all %}
+{{ k }}: {{ v }}
+{% endfor %}
+
+{{ data }}

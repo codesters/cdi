@@ -1,0 +1,25 @@
+{% extends "home/clubs_list_base.html" %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block title %}{{ club.name }} - CollegeDiveIn{% endblock %}
+
+{% block page-heading %} {{ club.name }} {% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span7 hero-unit">
+    <img class="pull-right img-polaroid" height="100" width="150" src="{{ club.thumbnail }}" alt="{{ club.name }} - CollegeDiveIn" />
+    <ul id="detail-ul" class="unstyled pull-left lead">
+        <li><b>Type:</b> {{ club.club_type }}</li>
+        <li><b>College:</b> {{ club.college }}</li>
+        <li><b>Established:</b> {{ club.estd }}</li>
+        <li><b>Membership:</b> {{club.membership }}</li>
+        <li><b>Info:</b> {{ club.about }}</li>
+        <li><a href="{{club.website }}">Website/Facebook Page</a></li>
+    </ul>
+    </div>
+</div>
+
+{% endblock %}

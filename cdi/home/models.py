@@ -18,7 +18,7 @@ class College(models.Model):
         ('Engineering', 'Engineering'),
         ('Management', 'Management'),
         ('Law', 'Law'),
-        ('Medical', 'Medical/Dental'),
+        ('Medical/Dental', 'Medical/Dental'),
         ('Others', 'Others')
         )
     YEAR_CHOICES = zip(range(1900, 2012), range(1900, 2012))
@@ -46,8 +46,8 @@ class Event(models.Model):
         ('Misc', 'Misc')
             )
     INVITATION_TYPE=(
-        ('Open', 'Open to Anyone'),
-        ('Restricted', 'Passes/Special Invitation Required'),
+        ('Open to Anyone', 'Open to Anyone'),
+        ('Passes/Special Invitation Required', 'Passes/Special Invitation Required'),
         ('In-Campus', 'In-Campus'),
             )
 
@@ -70,18 +70,18 @@ class Event(models.Model):
 
 class Club(models.Model):
     CLUB_TYPE=(
-        ('Engg and Tech', 'Engg and Tech'),
+        ('Engineering/Technology', 'Engineering/Technology'),
         ('Applied Sciences', 'Applied Sciences'),
         ('Social/NGO', 'Social/NGO'),
         ('Drama/Arts/Literature', 'Drama/Arts/Literature'),
-        ('Music', 'Music/Bands'),
-        ('Management', 'Management/Finance'),
+        ('Music/Bands', 'Music/Bands'),
+        ('Management/Finance', 'Management/Finance'),
         ('Others', 'Others'),
             )
     MEMBERSHIP_CHOICE = (
-        ('OpenAll', 'Open to anyone'),
-        ('OpenSome', 'Some Criteria'),
-        ('Selection', 'Through Apply and Selection'),
+        ('Open to anyone', 'Open to anyone'),
+        ('Some Criteria', 'Some Criteria'),
+        ('Through Apply and Selection', 'Through Apply and Selection'),
         ('Closed', 'Closed'),
             )
 
@@ -91,12 +91,12 @@ class Club(models.Model):
     estd=models.DateField()
     college=models.ForeignKey(College)
     website=models.URLField(blank=True, null=True)
-    membership=models.CharField(max_length=20, choices=MEMBERSHIP_CHOICE)
+    membership=models.CharField(max_length=40, choices=MEMBERSHIP_CHOICE)
     popularity=models.PositiveIntegerField(choices= RATING_CHOICE)
     thumbnail = models.URLField(blank=True, null=True)
 
-    class Meta:
-        ordering = ["-popularity"]
+#    class Meta:
+#        ordering = ["-popularity"]
 
     def __unicode__(self):
         return u'%s - %s' % (self.name, self.college.name)
@@ -104,7 +104,7 @@ class Club(models.Model):
 class Note(models.Model):
     NOTE_TYPE=(
         ('PDF', 'PDF'),
-        ('Word', 'Word Document'),
+        ('Word Document', 'Word Document'),
         ('Presentation File', 'Presentation File'),
         ('Images', 'Images'),
         ('Video/Audio', 'Video/Audio'),

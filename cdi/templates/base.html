@@ -21,6 +21,8 @@
         {% block extrahead %} {% endblock %}
     </head>
 <body>
+
+{% load tags %}
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -29,14 +31,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">CollegeDiveIn</a>
+          <a class="brand" href="http://collegedive.in/">CollegeDiveIn</a>
           <div class="nav-collapse collapse">
             <ul class="nav pull-right">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Clubs</a></li>
-                <li><a href="#">Colleges</a></li>
-                <li><a href="#">Academics</a></li>
+                <li class="{% active request "^/$" %}"><a href="{{ HOST }}">Home</a></li>
+                <li class="{% active request "^/events/" %}"><a href="{{ HOST }}/events/">Events</a></li>
+                <li class="{% active request "^/clubs/" %}"><a href="{{ HOST }}/clubs/">Clubs</a></li>
+                <li class="{% active request "^/colleges/" %}"><a href="{{ HOST }}/colleges/">Colleges</a></li>
+                <li class="{% active request "^/academics/" %}"><a href="{{ HOST }}/academics/">Academics</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

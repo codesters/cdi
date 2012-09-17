@@ -1,4 +1,5 @@
 # Django settings for cdi project.
+#from cdi.context_processors import host
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -58,6 +59,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'cdi.context_processors.host',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.request',
+    'django.core.context_processors.static',
 )
 
 TIME_ZONE = 'Asia/Kolkata'
