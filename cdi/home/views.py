@@ -7,6 +7,19 @@ from django.http import Http404
 
 from cdi.home.models import *
 
+North   = ['Jammu and Kashmir', 'Himachal Pradesh', 'Uttarakhand', 'Punjab', 'Haryana', 'Delhi', 'Uttar Pradesh']
+East    = ['Assam', 'Meghalaya', 'Manipur', 'Mizoram', 'Nagaland', 'Sikkim', 'Tripura', 'Arunachal Pradesh', 'West Bengal']
+West    = ['Rajasthan', 'Gujarat', 'Maharashtra', 'Goa']
+Central = ['Madhya Pradesh', 'Bihar', 'Jharkhand', 'Chhattisgarh', 'Orissa', 'Karnataka']
+South   = ['Kerala', 'Tamil Nadu', 'Andhra Pradesh']
+region_dict = {
+            1: North,
+            2: East,
+            3: West,
+            4: Central,
+            5: South,
+            }
+
 def clubs_all(request):
     club_list = Club.objects.all().order_by('?')
     paginator = Paginator(club_list, 3)
@@ -45,26 +58,13 @@ def clubs_campus(request, offset=1):
 
 def clubs_region(request, offset=1):
     offset = int(offset)
-    region_dict = {
-            1: 'North',
-            2: 'East',
-            3: 'West',
-            4: 'Central',
-            5: 'South',
-            }
-    North = []
-    East = []
-    West = []
-    Central = []
-    South = []
     try:
-        clubs=Club.objects.filter(club_type__exact=(type_dict[offset]))  #todo: WHERE and OR KEYWORD of SQL is needed. SEE how to make there kind of queries
+        clubs=Club.objects.filter(college__address__state__in =(region_dict[offset]))
     except (ValueError, ObjectDoesNotExist):
         raise Http404()
     if  clubs.count() == 0:
         raise Http404()
-    cregion = region_dict[offset_dict]
-    return render_to_response('home/clubs/clubs_type.html', {'cregion':cregion, 'club_list': clubs }, context_instance = RequestContext(request))
+    return render_to_response('home/clubs/clubs_region.html', {'club_list': clubs }, context_instance = RequestContext(request))
 
 def clubs_types(request, offset=1):
     offset = int(offset)
@@ -139,26 +139,13 @@ def events_campus(request, offset=1):
 
 def events_region(request, offset=1):
     offset = int(offset)
-    region_dict = {
-            1: 'North',
-            2: 'East',
-            3: 'West',
-            4: 'Central',
-            5: 'South',
-            }
-    North = []
-    East = []
-    West = []
-    Central = []
-    South = []
     try:
-        events=Event.objects.filter(event_type__exact=(type_dict[offset]))
+        events=Event.objects.filter(host__address__state__in =(region_dict[offset]))
     except (ValueError, ObjectDoesNotExist):
         raise Http404()
     if  events.count() == 0:
         raise Http404()
-    eregion = type_dict[offset]
-    return render_to_response('home/events/events_type.html', {'eregion':eregion, 'event_list': events }, context_instance = RequestContext(request))
+    return render_to_response('home/events/events_type.html', {'event_list': events }, context_instance = RequestContext(request))
 
 def events_types(request, offset=1):
     offset = int(offset)
@@ -217,26 +204,13 @@ def colleges_popular(request):
 
 def colleges_region(request, offset=1):
     offset = int(offset)
-    region_dict = {
-            1: 'North',
-            2: 'East',
-            3: 'West',
-            4: 'Central',
-            5: 'South',
-            }
-    North = []
-    East = []
-    West = []
-    Central = []
-    South = []
     try:
-        colleges=College.objects.filter(college_type__exact=(type_dict[offset]))
+        colleges=College.objects.filter(address__state__in =(region_dict[offset]))
     except (ValueError, ObjectDoesNotExist):
         raise Http404()
     if  colleges.count() == 0:
         raise Http404()
-    eregion = type_dict[offset]
-    return render_to_response('home/colleges/colleges_type.html', {'eregion':eregion, 'college_list': colleges }, context_instance = RequestContext(request))
+    return render_to_response('home/colleges/colleges_region.html', {'college_list': colleges }, context_instance = RequestContext(request))
 
 def colleges_types(request, offset=1):
     offset = int(offset)
