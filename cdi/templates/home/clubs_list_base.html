@@ -7,7 +7,7 @@
                 <div class="span3">
                     <div class="well sidebar-nav">
                         <ul class="nav nav-list">
-                            <li class="{% active request "^/clubs/$" %}"><a href="{{ HOST }}/clubs/">Popular Clubs</a></li>
+                            <li class="{% active request "^/clubs/popular/" %}"><a href="{{ HOST }}/clubs/popular/">Popular Clubs</a></li>
                             <li class="{% active request "^/clubs/all/" %}"><a href="{{ HOST }}/clubs/all/">All</a></li>
                             <li class="nav-header">Get Clubs by:</li>
                         </ul>
@@ -19,11 +19,11 @@
                                     <div id="region" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <ul class="nav nav-list">
-                                                <li class="{% active request "^/clubs/region/1/$" %}"><a href="{{ HOST }}/clubs/">North</a></li>
-                                                <li class="{% active request "^/clubs/region/2/$" %}"><a href="{{ HOST }}/clubs/">East</a></li>
-                                                <li class="{% active request "^/clubs/region/3/$" %}"><a href="{{ HOST }}/clubs/">West</a></li>
-                                                <li class="{% active request "^/clubs/region/4/$" %}"><a href="{{ HOST }}/clubs/">Central</a></li>
-                                                <li class="{% active request "^/clubs/region/5/$" %}"><a href="{{ HOST }}/clubs/">South</a></li>
+                                                <li class="{% active request "^/clubs/region/1/" %}"><a href="{{ HOST }}/clubs/">North</a></li>
+                                                <li class="{% active request "^/clubs/region/2/" %}"><a href="{{ HOST }}/clubs/">East</a></li>
+                                                <li class="{% active request "^/clubs/region/3/" %}"><a href="{{ HOST }}/clubs/">West</a></li>
+                                                <li class="{% active request "^/clubs/region/4/" %}"><a href="{{ HOST }}/clubs/">Central</a></li>
+                                                <li class="{% active request "^/clubs/region/5/" %}"><a href="{{ HOST }}/clubs/">South</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -34,13 +34,13 @@
                                     <div id="type" class="accordion-body collapse">
                                         <div class="accordion-inner">
                                             <ul class="nav nav-list">
-                                                <li class="{% active request "^/clubs/type/1/$" %}"><a href="{{ HOST }}/clubs/type/1">Engg and Tech</a></li>
-                                                <li class="{% active request "^/clubs/type/2/$" %}"><a href="{{ HOST }}/clubs/type/2">Applied Sciences</a></li>
-                                                <li class="{% active request "^/clubs/type/3/$" %}"><a href="{{ HOST }}/clubs/type/3">Social/NGO</a></li>
-                                                <li class="{% active request "^/clubs/type/4/$" %}"><a href="{{ HOST }}/clubs/type/4">Arts/Drama/Literature</a></li>
-                                                <li class="{% active request "^/clubs/type/5/$" %}"><a href="{{ HOST }}/clubs/type/5">Music/Bands</a></li>
-                                                <li class="{% active request "^/clubs/type/6/$" %}"><a href="{{ HOST }}/clubs/type/6">Management/Finance</a></li>
-                                                <li class="{% active request "^/clubs/type/7/$" %}"><a href="{{ HOST }}/clubs/type/7">Others</a></li>
+                                                <li class="{% active request "^/clubs/type/1/" %}"><a href="{{ HOST }}/clubs/type/1">Engg and Tech</a></li>
+                                                <li class="{% active request "^/clubs/type/2/" %}"><a href="{{ HOST }}/clubs/type/2">Applied Sciences</a></li>
+                                                <li class="{% active request "^/clubs/type/3/" %}"><a href="{{ HOST }}/clubs/type/3">Social/NGO</a></li>
+                                                <li class="{% active request "^/clubs/type/4/" %}"><a href="{{ HOST }}/clubs/type/4">Arts/Drama/Literature</a></li>
+                                                <li class="{% active request "^/clubs/type/5/" %}"><a href="{{ HOST }}/clubs/type/5">Music/Bands</a></li>
+                                                <li class="{% active request "^/clubs/type/6/" %}"><a href="{{ HOST }}/clubs/type/6">Management/Finance</a></li>
+                                                <li class="{% active request "^/clubs/type/7/" %}"><a href="{{ HOST }}/clubs/type/7">Others</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -53,7 +53,7 @@
                                             <ul class="nav nav-list">
 
                                                 {% for college in COLLEGES %}
-                                                <li class="{% active request "^/clubs/campus/{{ college.id }}/$" %}"><a href="{{ HOST }}/clubs/campus/{{ college.id }}/">{{ college.name }}</a></li>
+                                                <li class="{% active request "^/clubs/campus/{{ college.id }}/" %}"><a href="{{ HOST }}/clubs/campus/{{ college.id }}/">{{ college.name }}</a></li>
 
                                                 {% endfor %}
 

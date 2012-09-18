@@ -11,7 +11,7 @@
     {% for club in club_list %}
     <br />
     <div class="subhero-unit">
-        <h2>{{ club.name }}</h2><hr />
+        <h2><a href="{{ HOST }}/clubs/{{ club.id }}">{{ club.name }}</a></h2><hr />
         <div class="row">
             <div class="span3">
                 <img class="pull-left img-polaroid" height="100" width="150" src="{{ club.thumbnail }}" alt="{{ club.name }}" />
@@ -23,7 +23,7 @@
                 <li>Membership: {{club.membership }}</li>
                 <li><a href="{{club.website }}">Website/Facebook Page</a></li>
             </ul>
-            <a href="#" class="pull-right btn btn-primary">More...</a>
+            <a href="{{ HOST }}/clubs/{{ club.id }}" class="pull-right btn btn-primary">More...</a>
             </div>
         </div>
     </div>

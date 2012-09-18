@@ -43,7 +43,7 @@ class Event(models.Model):
         ('Festival', 'Festival'),
         ('Conference/Meetup', 'Conference/Meetup'),
         ('Competition', 'Competition'),
-        ('Misc', 'Misc')
+        ('Other', 'Other')
             )
     INVITATION_TYPE=(
         ('Open to Anyone', 'Open to Anyone'),
@@ -58,7 +58,7 @@ class Event(models.Model):
     about=models.TextField(blank=True, default='Not Available')
     start_date=models.DateField()
     end_date=models.DateField()
-    participate=models.CharField(max_length=20, choices=INVITATION_TYPE)
+    participate=models.CharField(max_length=40, choices=INVITATION_TYPE)
     website=models.URLField(blank=True, null=True)
     fb_page=models.URLField(blank=True, null=True)
     popularity=models.PositiveIntegerField(choices = RATING_CHOICE)

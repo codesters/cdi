@@ -1,0 +1,33 @@
+{% extends "home/events_list_base.html" %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block title %}{{ event.name }} - CollegeDiveIn{% endblock %}
+
+{% block page-heading %} {{ event.name }} <small>({{ event.event_type }})</small>{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span7 hero-unit">
+        <div class="row">
+            <div class="span5">
+
+    <ul id="detail-ul" class="unstyled pull-left lead">
+        <li><b>Type:</b> {{ event.event_type }}</li>
+        <li><b>College:</b> {{ event.host }}</li>
+        <li><b>Established:</b> {{ event.start_date }} - {{ event.end_date }}</li>
+        <li><b>Participation:</b> {{ event.participation }}</li>
+        <li><b>More Info:</b> {{ event.about }}</li>
+        <li><a href="{{ event.website }}">Website/Facebook Page</a></li>
+    </ul>
+
+            </div>
+            <div class="span2 pull-right">
+                <img class="img-polaroid" height="100" width="150" src="{{ event.thumbnail }}" alt="{{ event.name }} - CollegeDiveIn" />
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,3 +1,1 @@
-('#myCarousel').carousel({
-    interval: 1000
-    })
+$('.carousel').carousel()

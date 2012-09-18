@@ -44,6 +44,9 @@ header {
 }
 
 .fixed-bottom {
+    position: fixed;
+    left:0;
+    right:0;
     bottom:0 !important;
     margin-bottom:0 !important;
 }
@@ -71,4 +74,15 @@ header {
     #about img {
         display:none !important;
     }
+}
+
+.less-padding {
+    padding:30px !important;
+}
+
+.navbar-inner {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
