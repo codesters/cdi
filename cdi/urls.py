@@ -5,7 +5,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-     url(r'^$', direct_to_template, {'template': 'pages.html'}),
+     url(r'^$', direct_to_template, {'template': 'home.html'}),
      url(r'^about/$', direct_to_template, {'template': 'about.html'}),
      url(r'^team/$', direct_to_template, {'template': 'team.html'}),
      url(r'^contact/$', direct_to_template, {'template': 'contact.html'}),
@@ -22,4 +22,15 @@ urlpatterns += patterns('cdi.home.views',
         (r'^clubs/region$', 'clubs_region'),
         (r'^clubs/type/(\d)/$', 'clubs_types'),
         (r'^clubs/(\d)/$', 'clubs_detail'),
+)
+
+urlpatterns += patterns('cdi.home.views',
+        (r'^events/$', 'events_all'),
+        (r'^events/all/$', 'events_all'),
+        (r'^events/coming/$', 'events_coming'),
+        (r'^events/popular/$', 'events_popular'),
+        (r'^events/campus/(\d)/$', 'events_campus'),
+        (r'^events/region$', 'events_region'),
+        (r'^events/type/(\d)/$', 'events_types'),
+        (r'^events/(\d)/$', 'events_detail'),
 )
