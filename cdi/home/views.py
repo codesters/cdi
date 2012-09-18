@@ -186,3 +186,80 @@ def events_detail(request, offset=1):
     except (ValueError, ObjectDoesNotExist):
         raise Http404()
     return render_to_response('home/events/event_detail.html', {'event': event }, context_instance = RequestContext(request))
+
+##         COLLEGES           ##
+
+def colleges_all(request):
+    college_list = College.objects.all().order_by('name')
+    paginator = Paginator(college_list, 3)
+
+    page = request.GET.get('page')
+    try:
+        colleges = paginator.page(page)
+    except PageNotAnInteger:
+        colleges = paginator.page(1)
+    except EmptyPage:
+        colleges = paginator.page(paginator.num_pages)
+    return render_to_response('home/colleges/colleges_all.html', {'college_list': colleges}, context_instance=RequestContext(request))
+
+def colleges_popular(request):
+    college_list = College.objects.all().order_by('-rating', 'name')[:10]
+    paginator = Paginator(college_list, 3)
+
+    page = request.GET.get('page')
+    try:
+        colleges = paginator.page(page)
+    except PageNotAnInteger:
+        colleges = paginator.page(1)
+    except EmptyPage:
+        colleges = paginator.page(paginator.num_pages)
+    return render_to_response('home/colleges/colleges_popular.html', {'college_list': colleges}, context_instance=RequestContext(request))
+
+def colleges_region(request, offset=1):
+    offset = int(offset)
+    region_dict = {
+            1: 'North',
+            2: 'East',
+            3: 'West',
+            4: 'Central',
+            5: 'South',
+            }
+    North = []
+    East = []
+    West = []
+    Central = []
+    South = []
+    try:
+        colleges=College.objects.filter(college_type__exact=(type_dict[offset]))
+    except (ValueError, ObjectDoesNotExist):
+        raise Http404()
+    if  colleges.count() == 0:
+        raise Http404()
+    eregion = type_dict[offset]
+    return render_to_response('home/colleges/colleges_type.html', {'eregion':eregion, 'college_list': colleges }, context_instance = RequestContext(request))
+
+def colleges_types(request, offset=1):
+    offset = int(offset)
+    type_dict = {
+            1: 'Arts/Commerce/Science',
+            2: 'Engineering',
+            3: 'Management',
+            4: 'Law',
+            5: 'Medical/Dental',
+            6: 'Others',
+            }
+    try:
+        colleges=College.objects.filter(college_type__exact=(type_dict[offset]))
+    except (ValueError, ObjectDoesNotExist):
+        raise Http404()
+    if  colleges.count() == 0:
+        raise Http404()
+    cotype = colleges[0].college_type
+    return render_to_response('home/colleges/colleges_type.html', {'cotype':cotype, 'college_list': colleges }, context_instance = RequestContext(request))
+
+def colleges_detail(request, offset=1):
+    try:
+        college = College.objects.get(id=int(offset))
+    except (ValueError, ObjectDoesNotExist):
+        raise Http404()
+    return render_to_response('home/colleges/college_detail.html', {'college': college }, context_instance = RequestContext(request))

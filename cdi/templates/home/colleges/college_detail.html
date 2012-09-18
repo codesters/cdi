@@ -1,0 +1,32 @@
+{% extends "home/colleges_list_base.html" %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block title %}{{ college.name }} - CollegeDiveIn{% endblock %}
+
+{% block page-heading %} {{ college.name }} <small>({{ college.college_type }})</small>{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span7 hero-unit">
+        <div class="row">
+            <div class="span5">
+
+    <ul id="detail-ul" class="unstyled pull-left lead">
+        <li><b>Type:</b> {{ college.college_type }}</li>
+        <li><b>Established:</b> {{ college.estd }}</li>
+        <li><b>Address:</b> {{ college.address }}</li>
+        <li><b>More Info:</b> {{ college.about }}</li>
+        <li><a href="{{ college.website }}">Website/Facebook Page</a></li>
+    </ul>
+
+            </div>
+            <div class="span2 pull-right">
+                <img class="img-polaroid" height="100" width="150" src="{{ college.thumbnail }}" alt="{{ college.name }} - CollegeDiveIn" />
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

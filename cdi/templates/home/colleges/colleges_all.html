@@ -1,0 +1,52 @@
+{% extends "home/colleges_list_base.html" %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block title %}Colleges - CollegeDiveIn{% endblock %}
+
+{% block page-heading %}Colleges{% endblock %}
+
+{% block content %} 
+    {% for college in college_list %}
+    <br />
+    <div class="subhero-unit">
+        <h2><a href="{{ HOST }}/colleges/{{ college.id }}/">{{ college.name }}</a></h2><hr />
+        <div class="row">
+            <div class="span3">
+                <img class="pull-left img-polaroid" height="100" width="150" src="{{ college.thumbnail }}" alt="{{ college.name }}" />
+            </div>
+            <div class="span5">
+            <ul class="unstyled">
+                <li>Type: {{ college.college_type }}</li>
+                <li>Established: {{ college.estd }}</li>
+                <li>Address: {{ college.address }}</li>
+                <li><a href="{{college.website }}">Website</a></li>
+            </ul>
+            <a href="{{ HOST }}/colleges/{{ college.id }}/" class="pull-right btn btn-primary">More...</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <br />
+    <div class="pager pagination-centered row">
+        <ul>
+            <li>
+        <span class="previous">
+        {% if college_list.has_previous %}
+        <a href="?page={{ college_list.previous_page_number }}">Previous</a>
+        {% endif %}
+    </span></li>
+    <li>       <span class="current lead">
+        Page {{ college_list.number }} of {{ college_list.paginator.num_pages }}
+        </span></li>
+        <li>
+        <span class="next">
+        {% if college_list.has_next %}
+        <a href="?page={{ college_list.next_page_number }}">Next</a>
+        {% endif %}
+        </span></li>
+    </div>
+    <br />
+
+{% endblock %}

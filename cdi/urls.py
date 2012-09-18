@@ -9,6 +9,7 @@ urlpatterns = patterns('',
      url(r'^about/$', direct_to_template, {'template': 'about.html'}),
      url(r'^team/$', direct_to_template, {'template': 'team.html'}),
      url(r'^contact/$', direct_to_template, {'template': 'contact.html'}),
+     url(r'^academics/', direct_to_template, {'template': 'coming.html'}),
      (r'^meta/$', 'cdi.views.extra'),
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
      url(r'^admin/', include(admin.site.urls)),
@@ -34,3 +35,12 @@ urlpatterns += patterns('cdi.home.views',
         (r'^events/type/(\d)/$', 'events_types'),
         (r'^events/(\d)/$', 'events_detail'),
 )
+
+urlpatterns += patterns('cdi.home.views',
+        (r'^colleges/$', 'colleges_all'),
+        (r'^colleges/all/$', 'colleges_all'),
+        (r'^colleges/popular/$', 'colleges_popular'),
+        (r'^colleges/type/(\d)/$', 'colleges_types'),
+        (r'^colleges/(\d)/$', 'colleges_detail'),
+)
+
