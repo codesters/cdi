@@ -3,8 +3,8 @@ It is being actively developed for students of various colleges across. The main
 
 ##Some Info
 - Django Version 1.4
-- Use MySQL: Currently it uses some specific features of MySQL.
-- No external is currently used but later django-userena and django-facebook will be included.
+- Django-facebook for file storages is used.
+- Later django-userena and django-facebook will be included.
 
 Link: [CollegDiveIn](http://collegedive.in/).
 Author: [Karambir Singh Nain](http://akarambir.in/).
