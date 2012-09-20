@@ -15,16 +15,16 @@
                 padding-top:40px;
             }
             header {
-                background: url({{ dropbox }}img/cdiheader.png);
+                background: url({{ STATIC_URL }}img/cdiheader.png);
                 opacity:0.8;
             }
             header small {
                 color: #000 !important;
             }
 </style>
-        <link rel="stylesheet" type="text/css" href="{{ dropbox }}css/bootstrap.css">
-        <link rel="stylesheet" type="text/css" href="{{ dropbox }}css/bootstrap-responsive.css">
-        <link rel="stylesheet" type="text/css" href="{{ dropbox }}css/cdi.css">
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap-responsive.css">
+        <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/cdi.css">
 
         {% block extrahead %} {% endblock %}
     </head>
