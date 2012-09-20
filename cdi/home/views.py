@@ -102,6 +102,19 @@ def clubs_detail(request, offset=1):
 ##         EVENTS           ##
 
 def events_all(request):
+    event_list = Event.objects.all().order_by('name')
+    paginator = Paginator(event_list, 3)
+
+    page = request.GET.get('page')
+    try:
+        events = paginator.page(page)
+    except PageNotAnInteger:
+        events = paginator.page(1)
+    except EmptyPage:
+        events = paginator.page(paginator.num_pages)
+    return render_to_response('home/events/events_all.html', {'event_list': events}, context_instance=RequestContext(request))
+
+def events_coming(request):
     event_list = Event.objects.all().order_by('start_date')
     paginator = Paginator(event_list, 3)
 
