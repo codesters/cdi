@@ -9,69 +9,24 @@
                         <ul class="nav nav-list">
                             <li class="{% active request "^/clubs/popular/" %}"><a href="{{ HOST }}/clubs/popular/">Popular Clubs</a></li>
                             <li class="{% active request "^/clubs/all/" %}"><a href="{{ HOST }}/clubs/all/">All</a></li>
-                            <li class="nav-header">Get Clubs by:</li>
-                        </ul>
-
-                            <div id="sidebar-menu" class="accordion">
-                                <div class="accordian-group">
-                                    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebar-menu" href="#region">Region<i class="icon-chevron-down pull-right"></i></a>
-                                    </div>
-                                    <div id="region" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="nav nav-list">
-                                                <li class="{% active request "^/clubs/region/1/" %}"><a href="{{ HOST }}/clubs/region/1/">North</a></li>
-                                                <li class="{% active request "^/clubs/region/2/" %}"><a href="{{ HOST }}/clubs/region/2/">East</a></li>
-                                                <li class="{% active request "^/clubs/region/3/" %}"><a href="{{ HOST }}/clubs/region/3/">West</a></li>
-                                                <li class="{% active request "^/clubs/region/4/" %}"><a href="{{ HOST }}/clubs/region/4/">Central</a></li>
-                                                <li class="{% active request "^/clubs/region/5/" %}"><a href="{{ HOST }}/clubs/region/5/">South</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordian-group">
-                                    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebar-menu" href="#type">Type<i class="icon-chevron-down pull-right"></i></a>
-                                    </div>
-                                    <div id="type" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="nav nav-list">
-                                                <li class="{% active request "^/clubs/type/1/" %}"><a href="{{ HOST }}/clubs/type/1">Engg and Tech</a></li>
-                                                <li class="{% active request "^/clubs/type/2/" %}"><a href="{{ HOST }}/clubs/type/2">Applied Sciences</a></li>
-                                                <li class="{% active request "^/clubs/type/3/" %}"><a href="{{ HOST }}/clubs/type/3">Social/NGO</a></li>
-                                                <li class="{% active request "^/clubs/type/4/" %}"><a href="{{ HOST }}/clubs/type/4">Arts/Drama/Literature</a></li>
-                                                <li class="{% active request "^/clubs/type/5/" %}"><a href="{{ HOST }}/clubs/type/5">Music/Bands</a></li>
-                                                <li class="{% active request "^/clubs/type/6/" %}"><a href="{{ HOST }}/clubs/type/6">Management/Finance</a></li>
-                                                <li class="{% active request "^/clubs/type/7/" %}"><a href="{{ HOST }}/clubs/type/7">Others</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordian-group">
-                                    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebar-menu" href="#campus">Campus<i class="icon-chevron-down pull-right"></i></a>
-                                    </div>
-                                    <div id="campus" class="accordion-body collapse">
-                                        <div class="accordion-inner">
-                                            <ul class="nav nav-list">
-
-                                                {% for college in COLLEGES %}
-                                                <li class="{% active request "^/clubs/campus/{{ college.id }}/" %}"><a href="{{ HOST }}/clubs/campus/{{ college.id }}/">{{ college.name }}</a></li>
-
-                                                {% endfor %}
-
-
-<!--
-                                                <li class="{% active request "^/clubs/campus/1/$" %}"><a href="{{ HOST }}/clubs/campus/1/">IIT Delhi</a></li>
-                                                <li class="{% active request "^/clubs/campus/2/$" %}"><a href="{{ HOST }}/clubs/campus/2/">IIT Bombay</a></li>
-                                                <li class="{% active request "^/clubs/campus/3/$" %}"><a href="{{ HOST }}/clubs/campus/3/">ASET, Gurgaon</a></li>
-                                                <li class="{% active request "^/clubs/campus/4/$" %}"><a href="{{ HOST }}/clubs/campus/4/">ABS, Gurgaon</a></li>
-                                                <li class="{% active request "^/clubs/campus/5/$" %}"><a href="{{ HOST }}/clubs/campus/5/">IIT Kanpur</a></li>
-                                                -->
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <ul class="nav nav-list">
+                            <li class="nav-header">Get Clubs by Region:</li>
+                            <li class="{% active request "^/clubs/region/1/" %}"><a href="{{ HOST }}/clubs/region/1/">North</a></li>
+                            <li class="{% active request "^/clubs/region/2/" %}"><a href="{{ HOST }}/clubs/region/2/">East</a></li>
+                            <li class="{% active request "^/clubs/region/3/" %}"><a href="{{ HOST }}/clubs/region/3/">West</a></li>
+                            <li class="{% active request "^/clubs/region/4/" %}"><a href="{{ HOST }}/clubs/region/4/">Central</a></li>
+                            <li class="{% active request "^/clubs/region/5/" %}"><a href="{{ HOST }}/clubs/region/5/">South</a></li>
+                            <li class="nav-header">Get Clubs by Type:</li>
+                            <li class="{% active request "^/clubs/type/1/" %}"><a href="{{ HOST }}/clubs/type/1">Engg and Tech</a></li>
+                            <li class="{% active request "^/clubs/type/2/" %}"><a href="{{ HOST }}/clubs/type/2">Applied Sciences</a></li>
+                            <li class="{% active request "^/clubs/type/3/" %}"><a href="{{ HOST }}/clubs/type/3">Social/NGO</a></li>
+                            <li class="{% active request "^/clubs/type/4/" %}"><a href="{{ HOST }}/clubs/type/4">Arts/Drama/Literature</a></li>
+                            <li class="{% active request "^/clubs/type/5/" %}"><a href="{{ HOST }}/clubs/type/5">Music/Bands</a></li>
+                            <li class="{% active request "^/clubs/type/6/" %}"><a href="{{ HOST }}/clubs/type/6">Management/Finance</a></li>
+                            <li class="{% active request "^/clubs/type/7/" %}"><a href="{{ HOST }}/clubs/type/7">Others</a></li>
+                            <li class="nav-header">Get Clubs by Campus:</li>
+                            {% for college in COLLEGES %}
+                            <li class="{% active request "^/clubs/campus/{{ college.id }}/" %}"><a href="{{ HOST }}/clubs/campus/{{ college.id }}/">{{ college.name }}</a></li>
+                            {% endfor %}
                             <li class="nav-header">Misc:</li>
                             <li class="{% active request "^/about/$" %}"><a href="{{ HOST }}/about/">About</a></li>
                             <li class="{% active request "^/team/" %}"><a href="{{ HOST }}/team/">Team</a></li>
@@ -79,21 +34,7 @@
                         </ul>
                     </div>
                     <hr />
-                    <div class="row" id="social">
-                        <div class="span3"><a href="http://facebook.com/collegedivein"><img src="{{ STATIC_URL }}img/facebook.png" alt="CDI facebook page" /> </a>
-                        <a href="http://blog.collegedive.in"><img src="{{ STATIC_URL }}img/blogger.png" alt="CDI blog" /> </a>
-                        <a href="http://twitter.com/codestersgroup"><img src="{{ STATIC_URL }}img/twitter.png" alt="CDI twitter" /> </a>
-                        <a href="{{ HOST }}"><img src="{{ STATIC_URL }}img/googleplus.png" alt="CDI google plus" /> </a>
-                        <a href="mailto:cdi@codesters.org"> <img src="{{ STATIC_URL }}img/mail.png" alt="CDI mail" /></a></div>
-                    </div>
-                    <hr />
-                    <!--
-                    <div class="row">
-                        <div class="span3"><a href="{{ HOST }}/team/" class="btn btn-link btn-large">Team</a>
-                        <a href="{{ HOST }}/about/" class="btn btn-link btn-large">About</a>
-                        <a href="{{ HOST }}/contact/" class="btn btn-link btn-large">Contact</a></div>
-                </div>
-                -->
+                    {% include "social.html" %}
                 </div>
                 <div class="span9">
                 {% block content %}{% endblock %}

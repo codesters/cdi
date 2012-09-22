@@ -7,8 +7,8 @@ class AddressAdmin(admin.ModelAdmin):
 class CollegeAdmin(admin.ModelAdmin):
     list_display=('name', 'college_type', 'website')
 
-#class EventAdmin(admin.ModelAdmin):
-#    list_display=('name', 'venue', 'event_type','start_date')
+class EventAdmin(admin.ModelAdmin):
+    list_display=('name', 'venue', 'event_type','start_date')
 
 class ClubAdmin(admin.ModelAdmin):
     list_display=('name', 'college', 'club_type')
@@ -20,7 +20,7 @@ class NoteAdmin(admin.ModelAdmin):
 
 admin.site.register(Address, AddressAdmin)
 admin.site.register(College, CollegeAdmin)
-admin.site.register(Event)
+admin.site.register(Event, EventAdmin)
 admin.site.register(Club, ClubAdmin)
 admin.site.register(Note, NoteAdmin)
 
