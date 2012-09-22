@@ -40,7 +40,7 @@
 
 header {
     color:#000 !important;
-    min-height:153px;
+    min-height:80px;
 }
 
 .fixed-bottom {
@@ -86,3 +86,8 @@ header {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+#myCarousel {
+    margin-top:20px;
+    }
+    
