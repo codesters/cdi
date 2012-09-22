@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load tags %}
+
+{% block container-content %}
+<div class="row">
+                <div class="span3">
+                    <div class="well sidebar-nav">
+                        <ul class="nav nav-list">
+                            <li class="{% active request "^/academics/" %}"><a href="{{ HOST }}/academics/">All</a></li>
+                            <li class="nav-header">Get Notes by:</li>
+                        </ul>
+
+                            <div id="sidebar-menu" class="accordion">
+                                <div class="accordian-group">
+                                    <div class="accordion-heading"><a class="accordion-toggle" data-toggle="collapse" data-parent="#sidebar-menu" href="#course">Course Name<i class="icon-chevron-down pull-right"></i></a>
+                                    </div>
+                                    <div id="course" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                            <ul class="nav nav-list">
+                                                <li class="{% active request "^/academics/course/1/" %}"><a href="{{ HOST }}/academics/course/1">Computer Science</a></li>
+                                                <li class="{% active request "^/academics/course/2/" %}"><a href="{{ HOST }}/academics/course/2">Electronics and Communication</a></li>
+                                                <li class="{% active request "^/academics/course/3/" %}"><a href="{{ HOST }}/academics/course/3">Mechanical and Automation</a></li>
+                                                <li class="{% active request "^/academics/course/4/" %}"><a href="{{ HOST }}/academics/course/4">Civil</a></li>
+                                                <li class="{% active request "^/academics/course/5/" %}"><a href="{{ HOST }}/academics/course/5">Biotech</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <ul class="nav nav-list">
+                            <li class="nav-header">Misc:</li>
+                            <li class="{% active request "^/about/$" %}"><a href="{{ HOST }}/about/">About</a></li>
+                            <li class="{% active request "^/team/" %}"><a href="{{ HOST }}/team/">Team</a></li>
+                            <li class="{% active request "^/contact/" %}"><a href="{{ HOST }}/contact/">Contact</a></li>
+                        </ul>
+                    </div>
+                    <hr />
+                    <div class="row" id="social">
+                        <div class="span3"><a href="http://facebook.com/collegedivein"><img src="{{ STATIC_URL }}img/facebook.png" alt="CDI facebook page" /> </a>
+                        <a href="http://blog.collegedive.in"><img src="{{ STATIC_URL }}img/blogger.png" alt="CDI blog" /> </a>
+                        <a href="http://twitter.com/codestersgroup"><img src="{{ STATIC_URL }}img/twitter.png" alt="CDI twitter" /> </a>
+                        <a href="{{ HOST }}"><img src="{{ STATIC_URL }}img/googleplus.png" alt="CDI google plus" /> </a>
+                        <a href="mailto:cdi@codesters.org"> <img src="{{ STATIC_URL }}img/mail.png" alt="CDI mail" /></a></div>
+                    </div>
+                    <hr />
+                    <!--
+                    <div class="row">
+                        <div class="span3"><a href="{{ HOST }}/team/" class="btn btn-link btn-large">Team</a>
+                        <a href="{{ HOST }}/about/" class="btn btn-link btn-large">About</a>
+                        <a href="{{ HOST }}/contact/" class="btn btn-link btn-large">Contact</a></div>
+                </div>
+                -->
+                </div>
+                <div class="span9">
+                {% block content %}{% endblock %}
+                </div>
+            </div>
+{% endblock %}

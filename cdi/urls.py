@@ -9,7 +9,7 @@ urlpatterns = patterns('',
      url(r'^about/$', direct_to_template, {'template': 'about.html'}),
      url(r'^team/$', direct_to_template, {'template': 'team.html'}),
      url(r'^contact/$', direct_to_template, {'template': 'contact.html'}),
-     url(r'^academics/', direct_to_template, {'template': 'coming.html'}),
+#     url(r'^academics/', direct_to_template, {'template': 'coming.html'}),
      url(r'^add-club/', direct_to_template, {'template': 'add_club.html'}),
      url(r'^add-event/', direct_to_template, {'template': 'add_event.html'}),
 
@@ -50,4 +50,9 @@ urlpatterns += patterns('cdi.home.views',
         (r'^colleges/type/(\d)/$', 'colleges_types'),
         (r'^colleges/(\d)/$', 'colleges_detail'),
 )
+
+urlpatterns += patterns('cdi.home.views',
+        (r'^academics/$', 'notes_all'),
+        (r'^academics/course/(\d)/$', 'notes_course'),
+        )
 

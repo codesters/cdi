@@ -1,0 +1,48 @@
+{% extends "home/academics_list_base.html" %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block title %}Colleges - CollegeDiveIn{% endblock %}
+
+{% block page-heading %}Colleges{% endblock %}
+
+{% block content %} 
+    {% for note in note_list %}
+    <br />
+    <div class="subhero-unit">
+        <h2>{{ note.name }}</h2><hr />
+        <div class="row">
+            <ul class="unstyled">
+                <li>Type: {{ note.note_type }}</li>
+                <li>Established: {{ note.related_course }}</li>
+                <li>Address: {{ note.submitted_by }}</li>
+                <li>Date Updated: {{ note.date_updated }}</li>
+            </ul>
+            <a href="{{ note.view_link }}" class="btn">View</a>
+            <a href="{{ note.link }}" class="pull-right btn btn-primary">Download</a>
+        </div>
+    </div>
+    {% endfor %}
+    <br />
+    <div class="pager pagination-centered row">
+        <ul>
+            <li>
+        <span class="previous">
+        {% if note_list.has_previous %}
+        <a href="?page={{ note_list.previous_page_number }}">Previous</a>
+        {% endif %}
+    </span></li>
+    <li>       <span class="current lead">
+        Page {{ note_list.number }} of {{ note_list.paginator.num_pages }}
+        </span></li>
+        <li>
+        <span class="next">
+        {% if note_list.has_next %}
+        <a href="?page={{ note_list.next_page_number }}">Next</a>
+        {% endif %}
+        </span></li>
+    </div>
+    <br />
+
+{% endblock %}

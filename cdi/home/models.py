@@ -54,10 +54,10 @@ class Event(models.Model):
     name = models.CharField(max_length=250)
     event_type=models.CharField(max_length=40, choices=EVENT_TYPE)
     host=models.ForeignKey(College)
-    venue = models.ForeignKey(Address)
     about=models.TextField(blank=True, default='Not Available')
     start_date=models.DateField()
     end_date=models.DateField()
+    contact=models.TextField(blank=True, null=True)
     participate=models.CharField(max_length=40, choices=INVITATION_TYPE)
     website=models.URLField(blank=True, null=True)
     fb_page=models.URLField(blank=True, null=True)
@@ -122,8 +122,7 @@ class Note(models.Model):
     note_type=models.CharField(max_length=40, choices=NOTE_TYPE)
     submitted_by=models.CharField(max_length=100, blank=True, null=True)
     date_updated=models.DateField(auto_now=True)
-    link=models.URLField()
-    thumbnail = models.URLField(blank=True, null=True)
+    link = models.URLField()
 
     def __unicode__(self):
         return u'%s - %s' % (self.name, self.related_course)

@@ -3,9 +3,9 @@
 {% block extrahead %}
 {% endblock %}
 
-{% block title %}Colleges - CollegeDiveIn{% endblock %}
+{% block title %}Academics - Notes - CollegeDiveIn{% endblock %}
 
-{% block page-heading %}Colleges{% endblock %}
+{% block page-heading %}Notes{% endblock %}
 
 {% block content %} 
     {% for college in college_list %}
@@ -37,9 +37,6 @@
         <a href="?page={{ college_list.previous_page_number }}">Previous</a>
         {% endif %}
     </span></li>
-    <li>       <span class="current lead">
-        Page {{ college_list.number }} of {{ college_list.paginator.num_pages }}
-        </span></li>
         <li>
         <span class="next">
         {% if college_list.has_next %}

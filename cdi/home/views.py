@@ -250,3 +250,36 @@ def colleges_detail(request, offset=1):
     except (ValueError, ObjectDoesNotExist):
         raise Http404()
     return render_to_response('home/colleges/college_detail.html', {'college': college }, context_instance = RequestContext(request))
+
+##         Academics         ##
+
+def notes_all(request):
+    note_list = Note.objects.all().order_by('name')
+    paginator = Paginator(note_list, 3)
+
+    page = request.GET.get('page')
+    try:
+        notes = paginator.page(page)
+    except PageNotAnInteger:
+        notes = paginator.page(1)
+    except EmptyPage:
+        notes = paginator.page(paginator.num_pages)
+    return render_to_response('home/academics/notes_all.html', {'note_list': notes}, context_instance=RequestContext(request))
+             
+def notes_course(request, offset=1):
+    offset = int(offset)
+    course_dict = {
+            1: 'Computer Science',
+            2: 'Electronics and Communication',
+            3: 'Mechanical and Automation',
+            4: 'Civil',
+            5: 'Biotech',
+            }
+    try:
+        notes=Note.objects.filter(related_course__exact=(course_dict[offset]))
+    except (ValueError, ObjectDoesNotExist):
+        raise Http404()
+    if  notes.count() == 0:
+        raise Http404()
+    ncourse = notes[0].related_course
+    return render_to_response('home/academics/notes_course.html', {'ncourse':ncourse, 'note_list': notes }, context_instance = RequestContext(request))
