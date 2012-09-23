@@ -96,8 +96,6 @@ class Club(models.Model):
     popularity=models.PositiveIntegerField(choices= RATING_CHOICE)
     thumbnail = models.URLField(blank=True, null=True)
 
-#    class Meta:
-#        ordering = ["-popularity"]
 
     def __unicode__(self):
         return u'%s - %s' % (self.name, self.college.name)
