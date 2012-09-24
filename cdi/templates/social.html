@@ -1,4 +1,4 @@
-<div class="row" id="social">
+<!--<div class="row" id="social">
     <div class="span3">
         <a href="http://facebook.com/collegedivein"><img src="{{ STATIC_URL }}img/facebook.png" alt="CDI facebook page" /></a>
         <a href="http://blog.collegedive.in"><img src="{{ STATIC_URL }}img/blogger.png" alt="CDI blog" /> </a>
@@ -6,4 +6,16 @@
         <a href="{{ HOST }}"><img src="{{ STATIC_URL }}img/googleplus.png" alt="CDI google plus" /> </a>
         <a href="mailto:cdi@codesters.org"> <img src="{{ STATIC_URL }}img/mail.png" alt="CDI mail" /></a>
     </div>
+</div>
+-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=351470674935516";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="row" id="social">
+<div class="span3 fb-like-box" data-href="http://www.facebook.com/collegedivein" data-width="270" data-show-faces="true" data-stream="false" data-header="false"></div>
 </div>
